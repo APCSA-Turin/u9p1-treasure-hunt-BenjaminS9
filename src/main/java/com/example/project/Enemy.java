@@ -1,9 +1,10 @@
 package com.example.project;
 
 //Enemy only need constructor and getCoords() getRowCol()
-public class Enemy  { //child  of Sprite
+public class Enemy extends Sprite { //child  of Sprite
     
     public Enemy(int x, int y) {
+        super(x, y);
     }
 
 
@@ -11,10 +12,21 @@ public class Enemy  { //child  of Sprite
 
 
     public String getCoords(){ //returns "Enemy:"+coordinates
-        return "";
+        return "Enemy:" + super.getCoords();
     }
 
 
     public String getRowCol(int size){ //return "Enemy:"+row col
+        return "Enemy:" + super.getRowCol(size);
+    }
+
+    public void interact(Object obj) {
+        if (obj instanceof Player) {
+            
+        } else if (obj instanceof Trophy) {
+
+        } else if(obj instanceof Treasure) {
+
+        }
     }
 }
