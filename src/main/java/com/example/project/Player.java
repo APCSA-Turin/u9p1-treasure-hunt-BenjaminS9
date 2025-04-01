@@ -51,6 +51,12 @@ public class Player extends Sprite {
         } else if (obj instanceof Trophy) { //checks if there was an interaction with the trophy
             if (treasureCount >= numTreasures) { //checks if the player has first collected all the treasures
                 win = true; //if the player has all treasures, they win
+            } else { //moves the player back one space to account for the one space they will move forward(prevents player from moving onto the trophy space without enough treasures)
+                if (direction.equals("w")) { //if they are coming from below the trophy, moves them down one
+                    move("s");
+                } else { //if they are coming from the left of the trophy, moves them right
+                    move("d");
+                }
             }
         } else if(obj instanceof Treasure) { //checks if the player touched a treasure
             treasureCount++; //increases the amount of treasures obtained
